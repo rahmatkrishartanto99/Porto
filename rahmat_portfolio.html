@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahmat Krishartanto — B2B Sales Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F8F8F6;
+    --surface: #FFFFFF;
+    --ink: #111111;
+    --accent: #1A43BF;
+    --accent-light: #EEF2FF;
+    --muted: #6B7280;
+    --rule: #E5E5E2;
+    --font: 'Inter', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248,248,246,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+  }
+  .nav-inner {
+    max-width: 900px; margin: 0 auto; padding: 0 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-name {
+    font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font); font-size: 13px; font-weight: 500;
+    padding: 8px 18px; border-radius: 6px; cursor: pointer;
+    text-decoration: none; transition: all 0.15s;
+    border: 1.5px solid var(--accent); letter-spacing: -0.01em;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  .btn-primary:hover { background: #1535a8; border-color: #1535a8; }
+  .btn-outline {
+    background: transparent; color: var(--accent);
+  }
+  .btn-outline:hover { background: var(--accent-light); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 140px 0 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-inner {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 60px; align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero-record {
+    font-size: clamp(52px, 8vw, 84px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--ink);
+    border-left: 4px solid var(--accent);
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
+  .hero-record-label {
+    font-size: 13px; color: var(--muted); padding-left: 24px;
+    margin-bottom: 28px; font-weight: 500;
+  }
+  .hero-name {
+    font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 4px;
+  }
+  .hero-title {
+    font-size: 15px; color: var(--muted); margin-bottom: 16px;
+  }
+  .hero-statement {
+    font-size: 15px; color: var(--ink); line-height: 1.65;
+    max-width: 520px; margin-bottom: 28px;
+    font-style: italic;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: 700; letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  /* ── STATS ── */
+  .stats {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    padding: 0 40px;
+    border-right: 1px solid var(--rule);
+  }
+  .stat-item:first-child { padding-left: 0; }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700; letter-spacing: -0.03em;
+    color: var(--ink); line-height: 1; margin-bottom: 6px;
+  }
+  .stat-number span { color: var(--accent); }
+  .stat-label {
+    font-size: 13px; color: var(--muted); font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 700; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 40px; line-height: 1.2;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 64px; align-items: start;
+  }
+  .about-text p {
+    font-size: 15px; color: #374151; line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .pillars { display: flex; flex-direction: column; gap: 16px; }
+  .pillar {
+    padding: 16px 20px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+  }
+  .pillar-title {
+    font-size: 13px; font-weight: 600; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .pillar-desc {
+    font-size: 13px; color: var(--muted); line-height: 1.55;
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 32px; padding: 32px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-meta { padding-top: 2px; }
+  .exp-period {
+    font-size: 12px; font-weight: 500; color: var(--muted);
+    letter-spacing: 0.02em; margin-bottom: 6px;
+  }
+  .exp-company {
+    font-size: 13px; font-weight: 600; color: var(--accent);
+  }
+  .exp-title-role {
+    font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink); margin-bottom: 6px;
+  }
+  .exp-industry {
+    font-size: 12px; color: var(--muted); margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 14px; color: #374151; line-height: 1.65;
+    padding: 3px 0 3px 16px; position: relative;
+  }
+  .exp-bullets li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--accent); font-size: 11px; top: 5px;
+  }
+  .exp-tag {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    padding: 3px 10px; border-radius: 20px; margin: 8px 4px 0 0;
+    background: var(--accent-light); color: var(--accent);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .skill-group-title {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    font-size: 13px; color: var(--ink);
+    padding: 6px 14px; border-radius: 4px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    font-weight: 500;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--ink);
+    border-bottom: none;
+    padding: 80px 0;
+  }
+  .cta-section .section-eyebrow { color: #93C5FD; }
+  .cta-inner { max-width: 600px; }
+  .cta-title {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700; letter-spacing: -0.025em;
+    color: #fff; margin-bottom: 16px; line-height: 1.15;
+  }
+  .cta-sub {
+    font-size: 15px; color: #9CA3AF; margin-bottom: 36px;
+    line-height: 1.65;
+  }
+  .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-white {
+    background: #fff; color: var(--ink); border-color: #fff;
+  }
+  .btn-white:hover { background: #F3F4F6; border-color: #F3F4F6; }
+  .btn-ghost {
+    background: transparent; color: #fff; border-color: rgba(255,255,255,0.3);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+  .cta-contact-line {
+    margin-top: 32px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  .cta-contact-item {
+    font-size: 13px; color: #9CA3AF;
+  }
+  .cta-contact-item a {
+    color: #93C5FD; text-decoration: none;
+  }
+  .cta-contact-item a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-inner {
+    max-width: 900px; margin: 0 auto; padding: 0 28px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 12px; color: #6B7280; }
+
+  /* ── AVAILABLE BADGE ── */
+  .available-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #DCFCE7; color: #15803D;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .available-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #16A34A;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .hero-avatar { width: 80px; height: 80px; font-size: 24px; order: -1; }
+    .hero-record { font-size: 52px; }
+    .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+    .stat-item { border-right: none; padding: 0; border-bottom: 1px solid var(--rule); padding-bottom: 24px; }
+    .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .available-dot { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Rahmat Krishartanto</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:rahmatkrishartanto99@gmail.com" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="available-badge">
+          <span class="available-dot"></span>
+          Open to opportunities — remote &amp; global
+        </div>
+        <div class="hero-eyebrow">B2B Sales Leader · Indonesia · Southeast Asia</div>
+        <div class="hero-record">IDR 4.9B</div>
+        <div class="hero-record-label">Monthly branch revenue record — PT Wesort Technology Indonesia, May 2026</div>
+        <div class="hero-name">Rahmat Krishartanto</div>
+        <div class="hero-title">Sales Manager &amp; Business Development Manager</div>
+        <p class="hero-statement">"I turn underperforming markets into revenue engines — by building the right team, installing the right process, and closing the deals myself when it matters."</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get in Touch</a>
+          <a href="https://linkedin.com/in/rahmatkrishartanto" target="_blank" class="btn btn-outline">View LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-avatar">RK</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">4.9<span>B</span></div>
+        <div class="stat-label">IDR in branch revenue<br>in a single month</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Sales professionals<br>built &amp; managed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5<span>+</span></div>
+        <div class="stat-label">Years B2B sales across<br>4 industries</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-eyebrow">About</div>
+    <div class="section-title">Who I am &amp; what I do</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a B2B sales leader based in Indonesia with a track record of building markets, breaking records, and developing high-performance sales teams — across industrial technology, automotive, and financial services.</p>
+        <p>At Wesort Technology Indonesia, I set the all-time individual sales record at IDR 2.2 billion in a single month, then transitioned into a leadership role where my team achieved IDR 4.9 billion — the highest monthly revenue in the company's 8-year history. I opened Lampung and Medan from zero, contributed to two new branch offices, and built the 12-person team that runs those markets today.</p>
+        <p>Before Wesort, I spent over two years at PT Toyota Astra Financial Services (KINTO) where I was recognised as Best Sales 8 times and delivered 200% of my monthly quota. I also served as a Business Consultant at BMW, managing corporate and high-net-worth client relationships through complex, multi-touch sales cycles.</p>
+        <p>I'm now open to remote and international roles as Sales Manager or Business Development Manager — particularly at B2B Tech, SaaS, or Industrial Equipment companies expanding across Southeast Asia.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-title">🏆 Record-Breaking Execution</div>
+          <div class="pillar-desc">I don't just hit targets — I rewrite them. Two company records set in the same role.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">🗺 Market Pioneer</div>
+          <div class="pillar-desc">I open markets others haven't entered. From zero presence to functioning branch offices.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">👥 Team Builder</div>
+          <div class="pillar-desc">I build systems and people — CRM workflows, sales playbooks, onboarding processes that scale.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-title">🔧 Cross-Industry Operator</div>
+          <div class="pillar-desc">Machinery, automotive, financial services. I adapt fast and bring outside perspective.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-eyebrow">Experience</div>
+    <div class="section-title">Career history</div>
+    <div class="experience-list">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jul 2025 — Present</div>
+          <div class="exp-company">Wesort Technology Indonesia</div>
+        </div>
+        <div>
+          <div class="exp-title-role">Sales Manager (Acting)</div>
+          <div class="exp-industry">Industrial Automation · Sorting Machinery · Agribusiness</div>
+          <ul class="exp-bullets">
+            <li>Drove IDR 4.9 billion in branch revenue in a single month — highest in company history across all branches</li>
+            <li>Set the all-time individual sales record: IDR 2.2 billion in a single month as a direct sales contributor</li>
+            <li>Opened Lampung &amp; Medan markets from zero, directly contributing to two new branch offices across Sumatra</li>
+            <li>Built and trained a 12-person nationwide sales team; implemented CRM workflows and weekly pipeline reviews</li>
+            <li>Standardised full B2B sales cycle: prospecting → technical consultation → demo → negotiation → close</li>
+          </ul>
+          <div>
+            <span class="exp-tag">Capital Equipment</span>
+            <span class="exp-tag">Team Leadership</span>
+            <span class="exp-tag">Market Expansion</span>
+            <span class="exp-tag">CRM Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jan 2025 — Jun 2025</div>
+          <div class="exp-company">BMW — Tunas Group</div>
+        </div>
+        <div>
+          <div class="exp-title-role">Business Consultant (Contract)</div>
+          <div class="exp-industry">Premium Automotive · B2B &amp; HNW Client Sales</div>
+          <ul class="exp-bullets">
+            <li>Managed full-cycle premium vehicle sales for corporate and high-net-worth clients</li>
+            <li>Applied consultative selling methodology to complex, multi-stakeholder decisions</li>
+            <li>Delivered engagement within contracted scope before returning to industrial B2B</li>
+          </ul>
+          <div>
+            <span class="exp-tag">Consultative Selling</span>
+            <span class="exp-tag">B2B Accounts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">May 2022 — Sep 2024</div>
+          <div class="exp-company">Toyota Astra Financial Services (KINTO)</div>
+        </div>
+        <div>
+          <div class="exp-title-role">Sales Consultant &amp; Area Team Leader</div>
+          <div class="exp-industry">Automotive Subscription · B2B Fleet · Financial Services</div>
+          <ul class="exp-bullets">
+            <li>Achieved 200% of monthly quota (March 2024) — top individual contributor across the region</li>
+            <li>Recognised as Best Sales 8 consecutive times throughout tenure</li>
+            <li>Consistently delivered 12+ subscription units per month as an individual contributor</li>
+            <li>Managed B2B corporate fleet accounts and subscription renewals</li>
+          </ul>
+          <div>
+            <span class="exp-tag">200% Quota</span>
+            <span class="exp-tag">Best Sales ×8</span>
+            <span class="exp-tag">Fleet B2B</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Nov 2021 — Apr 2022</div>
+          <div class="exp-company">Astra International — Auto2000</div>
+        </div>
+        <div>
+          <div class="exp-title-role">Fleet Sales Executive</div>
+          <div class="exp-industry">B2B Fleet Sales · Corporate Accounts</div>
+          <ul class="exp-bullets">
+            <li>Managed B2B fleet accounts for Indonesia's largest automotive distributor</li>
+            <li>Handled multi-unit corporate procurement from prospecting through contract signing</li>
+          </ul>
+          <div>
+            <span class="exp-tag">Fleet Sales</span>
+            <span class="exp-tag">Corporate Accounts</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-eyebrow">Skills</div>
+    <div class="section-title">Core competencies</div>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-title">Sales &amp; Business Development</div>
+        <div class="skill-tags">
+          <span class="skill-tag">B2B Enterprise Sales</span>
+          <span class="skill-tag">Consultative Selling</span>
+          <span class="skill-tag">Pipeline Management</span>
+          <span class="skill-tag">Account Management</span>
+          <span class="skill-tag">Negotiation</span>
+          <span class="skill-tag">Deal Closing</span>
+          <span class="skill-tag">Sales Forecasting</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">Leadership &amp; Operations</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Team Building</span>
+          <span class="skill-tag">Sales Coaching</span>
+          <span class="skill-tag">CRM Management</span>
+          <span class="skill-tag">Process Design</span>
+          <span class="skill-tag">Territory Management</span>
+          <span class="skill-tag">Revenue Operations</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">Market &amp; Strategy</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Market Entry</span>
+          <span class="skill-tag">Territory Expansion</span>
+          <span class="skill-tag">Southeast Asia</span>
+          <span class="skill-tag">Agribusiness</span>
+          <span class="skill-tag">Industrial Tech</span>
+          <span class="skill-tag">SaaS Sales</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">Industries</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Capital Equipment</span>
+          <span class="skill-tag">Automotive</span>
+          <span class="skill-tag">Financial Services</span>
+          <span class="skill-tag">Healthcare</span>
+          <span class="skill-tag">AgriTech</span>
+          <span class="skill-tag">FMCG</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="section-eyebrow">Let's talk</div>
+      <div class="cta-title">Looking for a sales leader who delivers — not just manages?</div>
+      <p class="cta-sub">I'm currently open to Sales Manager and Business Development Manager roles — remote or hybrid — at B2B Tech, SaaS, or Industrial Equipment companies with ambitions in Southeast Asia. If you're building something and need someone who can open markets and close deals, let's have a conversation.</p>
+      <div class="cta-actions">
+        <a href="mailto:rahmatkrishartanto99@gmail.com" class="btn btn-white">
+          Email Me
+        </a>
+        <a href="https://linkedin.com/in/rahmatkrishartanto" target="_blank" class="btn btn-ghost">
+          LinkedIn Profile
+        </a>
+      </div>
+      <div class="cta-contact-line">
+        <div class="cta-contact-item">📧 <a href="mailto:rahmatkrishartanto99@gmail.com">rahmatkrishartanto99@gmail.com</a></div>
+        <div class="cta-contact-item">📱 <a href="tel:+6287711443138">+62 877-1144-3138</a></div>
+        <div class="cta-contact-item">📍 Bogor, Indonesia · Open to Remote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 Rahmat Krishartanto · B2B Sales Leader · Indonesia</div>
+    <div class="footer-copy"><a href="https://linkedin.com/in/rahmatkrishartanto" target="_blank" style="color:#6B7280;text-decoration:none;">linkedin.com/in/rahmatkrishartanto</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
